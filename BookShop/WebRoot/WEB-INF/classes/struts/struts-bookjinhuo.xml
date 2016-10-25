@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- struts-lesson.xml 文件中配置的是 CrmLessontype 所独有的 -->
+	<package name="bookjinhuo" namespace="/jin" extends="common">
+	
+		<action name="JinshuAction_*" class="zfd.action.JinshuActin" method="{1}">
+		
+			<result name="find">/jinshu/listJinshu.jsp</result>
+			<result name="findpart">/jinshu/listJinshu.jsp</result>
+			<result name="handle">/jinshu/handleJinShu.jsp</result>
+			<result name="savejinshu">/jinshu/handleJinShu.jsp</result>
+			
+		</action>
+	
+	
+	</package>
+	
+</struts>

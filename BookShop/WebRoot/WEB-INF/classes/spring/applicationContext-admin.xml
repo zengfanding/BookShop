@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					   http://www.springframework.org/schema/beans/spring-beans.xsd
+       					   http://www.springframework.org/schema/tx 
+       					   http://www.springframework.org/schema/tx/spring-tx.xsd
+       					   http://www.springframework.org/schema/aop 
+       					   http://www.springframework.org/schema/aop/spring-aop.xsd
+       					   http://www.springframework.org/schema/context 
+       					   http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- applicationContext-user.xml 中配置的是CrmUser独有的 -->
+	
+	<!-- 配置 dao -->
+	<bean id="adminUserDao" class="zfd.dao.AdminUserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+		<!-- 此处引用的sessionFactory 是 通用spring配置文件applicationContext.xml中配置的sessionFactory -->
+	</bean>
+	<!-- 配置service -->
+	<bean id="adminUserService" class="zfd.service.AdminUserServiceImpl">
+		<property name="adminUserDao" ref="adminUserDao"></property>
+	</bean>
+
+</beans>

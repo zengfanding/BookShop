@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- struts.xml 文件中配置的是通用内容 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	
+	
+	<package name="common" namespace="/" extends="json-default">
+		
+	
+		
+		<!-- 配置全局的返回值 -->
+		<global-results>
+			<result name="noLogin">/WEB-INF/pages/login.jsp</result>
+		</global-results>
+	
+		<action name="uiAction_*_*">
+			<result>/WEB-INF/adminpages/{1}/{2}.jsp</result>
+		</action>
+	
+	
+	
+	</package>
+	<!-- 加载其他struts配置文件 -->
+	   
+	<include file="struts/struts-bookinfo.xml"></include>
+	<include file="struts/struts-bookjinhuo.xml"></include>
+	<include file="struts/struts-welcome.xml"></include>
+	<include file="struts/struts-xiaoshou.xml"></include>
+	<include file="struts/struts-adminuser.xml"></include>
+	<!--
+	<include file="struts/struts-lesson.xml"></include>
+	-->
+</struts>

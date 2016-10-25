@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- struts-lesson.xml 文件中配置的是 CrmLessontype 所独有的 -->
+	<package name="bookinfor" namespace="/book" extends="common">
+	
+		<action name="BookAction_*" class="zfd.action.BookAction" method="{1}">
+
+			<result name="saveOrEditBook" type="redirectAction">/book/BookAction_findAll</result>
+			<result name="findAll">/book/listBook.jsp</result>
+			<result name="find">/book/listBook.jsp</result>
+			<result name="edit">/book/addBook.jsp</result>
+			<result name="delete" type="redirectAction">/book/BookAction_findAll</result>
+			<result name="getAjax" type="json">
+				<param name="root">ajaxBookInfo</param>
+			</result>
+			<result name="findtokucun">/kucun/listKucun.jsp</result>
+			<result name="findalltokucun">/kucun/listKucun.jsp</result>
+			<result name="addjinshu">/kucun/addJinshu.jsp</result>
+			<result name="savejinshudan">/kucun/listKucun.jsp</result>
+			<result name="findBookWithEmergency">/kucun/listKucun.jsp</result>
+			
+		</action>
+	
+	
+	</package>
+	
+</struts>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					   http://www.springframework.org/schema/beans/spring-beans.xsd
+       					   http://www.springframework.org/schema/tx 
+       					   http://www.springframework.org/schema/tx/spring-tx.xsd
+       					   http://www.springframework.org/schema/aop 
+       					   http://www.springframework.org/schema/aop/spring-aop.xsd
+       					   http://www.springframework.org/schema/context 
+       					   http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- applicationContext.xml 中配置的是通用的内容 -->
+	
+	<!-- 加载jdbc-info.properties 文件 -->
+	<context:property-placeholder location="classpath:jdbc-info.properties"/>
+	
+	<!-- 配置 c3p0 连接池，即配置数据源 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driverclass}"></property>
+		<property name="jdbcUrl" value="${jdbc.url}"></property>
+		<property name="user" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
+	
+	
+	<!-- 配置sessionFactory (加载hibernate.cfg.xml) -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:hibernate/hibernate.cfg.xml"></property>
+		<!-- 配置 加载所有的 hbm.xml文件 -->
+		<property name="mappingDirectoryLocations" value="classpath:zfd/bean"></property>
+	</bean>
+	
+	
+	
+	<!-- 配置事务 -->
+	<!-- 确定事务管理器 -->
+	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 对每一个方法配置事务详情，即对每一个方法配置一下该使用什么样的事务来管理 -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+		
+			<tx:method name="save*"/>
+			<tx:method name="delete*"/>
+			<tx:method name="update*"/>
+			<tx:method name="find*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- 配置AOP，使AOP自动对切入点生成代理 -->
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* zfd.service..*.*(..))"/>
+		
+	</aop:config>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</beans>
