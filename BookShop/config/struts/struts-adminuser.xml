@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- struts-lesson.xml 文件中配置的是 CrmLessontype 所独有的 -->
+	<package name="adminuser" namespace="/admin" extends="common">
+	
+		<action name="Admin_*" class="zfd.action.AdminUserAction" method="{1}">
+
+			<result name="login">/WEB-INF/adminpages/frame.jsp</result>
+			<result name="loginerror">/login.jsp</result>
+			<result name="relogin">/login.jsp</result>
+			<result name="add">/adminusers/addadminuser.jsp</result>
+			
+		</action>
+	
+	
+	</package>
+	
+</struts>

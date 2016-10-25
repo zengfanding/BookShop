@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- struts-lesson.xml 文件中配置的是 CrmLessontype 所独有的 -->
+	<package name="xiaoshou" namespace="/xiao" extends="common">
+	
+		<action name="Xiaoshou_*" class="zfd.action.XiaoshouAction" method="{1}">
+
+			<result name="findAll">/xiaoshou/listxiaoshou.jsp</result>
+			<result name="find">/xiaoshou/listxiaoshou.jsp</result>
+			
+			
+		</action>
+	
+	
+	</package>
+	
+</struts>
