@@ -133,7 +133,7 @@
 	
 	
 	<div class="imgdiv">
-		<img id="tupian" src="" width="140px" height="200px" alt="暂无图片"/>
+		<img id="tupian" src="../bookImgs/<s:property value='img'></s:property>" width="140px" height="200px" alt="暂无图片"/>
 	</div>
 	
 </body>
