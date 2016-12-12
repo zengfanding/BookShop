@@ -22,7 +22,7 @@
 		<table border="0" width="100%" cellspacing="0" cellpadding="0" id="table2">
 			<tr>
 				<td width="420">
-				<img border="0" src="${pageContext.request.contextPath}/images/topbg.jpg" width="436" height="80"></td>
+				<img border="0" src="${pageContext.request.contextPath}/images/test/light.png" width="1380" height="80"></td>
 				<td background="${pageContext.request.contextPath}/images/topbg.jpg" valign="bottom">
 				<div align="right">
 				<table border="0" width="145" id="table7" cellspacing="0" cellpadding="0">

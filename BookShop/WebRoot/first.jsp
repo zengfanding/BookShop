@@ -56,13 +56,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <body onload="fun()">
   
 	<div class="logoBar">
-		<div class="comWidth">
-			<div class="logo fl">
-			<!--  	<a href="#"><img src="images/logo.jpg" alt="慕课网"></a> -->
-			</div>
-			
-			
-		</div>
+	<img src="images/test/light.png">
+		
 	</div>
 	
 
