@@ -21,6 +21,7 @@ public class AdminUserAction extends ActionSupport implements ModelDriven<AdminU
 	
 
 	private AdminUser adminUser = new AdminUser();
+	
 	@Override
 	public AdminUser getModel() {
 		return adminUser;
