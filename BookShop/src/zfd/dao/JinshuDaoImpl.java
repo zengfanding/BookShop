@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import zfd.bean.BookInfo;
@@ -98,4 +100,13 @@ public class JinshuDaoImpl extends HibernateDaoSupport implements JinshuDao {
 		
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<BookJinhuo> findByBookIdWithAscOrder(BookInfo book) {
+		String hql = "from BookJinhuo where bookInfo = ? order by caiGouDate asc";
+		
+		
+		return (List<BookJinhuo>)this.getHibernateTemplate().find(hql, book);
+	}
+	
 }

@@ -139,19 +139,11 @@ public class JinshuActin extends ActionSupport implements ModelDriven<BookJinhuo
 	}
 	
 	public String saveJinshu(){
-		
-		//System.out.println(bookJinhuo);
-		
 		bookJinhuo.setCaiGouDate(new Date());
-		
 		bookJinhuo.getBookInfo().setNum(bookJinhuo.getCaiGouNum()+bookJinhuo.getBookInfo().getNum());
 		System.out.println(bookJinhuo);
-		
 		jinshuService.saveOrUpdateBookJinhuo(bookJinhuo);
-		
-		
 		return "savejinshu";
-		
 	}
 	
 	

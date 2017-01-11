@@ -143,31 +143,23 @@ public class BookAction extends ActionSupport implements ModelDriven<BookInfo> {
 					&& org.apache.commons.lang3.StringUtils.isNotBlank(imageFileName))
 					|| org.apache.commons.lang3.StringUtils.isBlank(bookInfo.getBookid())) {
 
-				String parentDir = ServletActionContext.getServletContext().getRealPath("/bookImgs"); // ��ȡ��Ŀ¼����ʵ·��
-				String fileName = StringUtils.getUUID(); // ����ļ��� ���磺1234
-				String extendName = imageFileName.substring(imageFileName.lastIndexOf(".")); // �����չ��
-																								// ���磺.png
-				String trueName = fileName + extendName; // ��ʵ�ļ��� ���磺1234.png
-				// String fullName = parentDir+"/"+trueName;
-
+				String parentDir = ServletActionContext.getServletContext().getRealPath("/bookImgs"); 
+				String fileName = StringUtils.getUUID();
+				String extendName = imageFileName.substring(imageFileName.lastIndexOf(".")); 
+																								
+				String trueName = fileName + extendName; 
 				File file = new File(parentDir, trueName);
-
 				FileUtils.copyFile(image, file);
-
 				this.bookInfo.setImg(trueName);
-
 			}
 			System.out.println(isadd);
 			if("add".equals(isadd)){
 				bookInfo.setNum(0);
 			}
-
 			this.bookService.saveOrUpdateBook(bookInfo);
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		return "saveOrEditBook";
 	}
 
@@ -288,17 +280,12 @@ public class BookAction extends ActionSupport implements ModelDriven<BookInfo> {
 	}
 
 	public String saveJinshudan() {
-
 		BookJinhuo jinhuo = new BookJinhuo();
-
 		jinhuo.setBookInfo(bookInfo);
-
 		jinhuo.setCaiGouNum(caiGouNum);
 		jinhuo.setJinPrice(jinPrice);
 		jinhuo.setJinshuMa(StringUtils.getUnique32BitNum());
-
 		bookService.saveOrUpdateJinhuo(jinhuo);
-
 		return "savejinshudan";
 	}
 

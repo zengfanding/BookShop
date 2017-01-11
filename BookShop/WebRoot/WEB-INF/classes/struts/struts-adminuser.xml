@@ -12,6 +12,11 @@
 			<result name="loginerror">/login.jsp</result>
 			<result name="relogin">/login.jsp</result>
 			<result name="add">/adminusers/addadminuser.jsp</result>
+			<result name="toExportPage">/adminusers/exportPage.jsp</result>
+			<result name="exportExcel" type="stream">
+				<param name="inputName">target</param>
+				<param name="contentDisposition">attachment;filename=${filename}</param>
+			</result>
 			
 		</action>
 	

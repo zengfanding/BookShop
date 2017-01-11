@@ -10,9 +10,14 @@
 	type="text/css" rel="stylesheet" />
 	
 	
-	
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.3.1.js"></script>
 	<script type="text/javascript">
 	
+			
+			$(function(){
+				
+			
+			});
 			
 	
 			function autoWriteInfoByBookId(obj){
@@ -64,6 +69,7 @@
 			}
 			return xmlHttp;
 		}
+		
 	</script>
 </head>
 

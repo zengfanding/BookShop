@@ -2,8 +2,10 @@ package zfd.service;
 
 import java.util.List;
 
+import zfd.bean.BookInfo;
 import zfd.bean.BookJinhuo;
 import zfd.dao.JinshuDao;
+import zfd.dao.JinshuDaoImpl;
 
 public class JinshuServiceImpl implements JinshuService{
 	
@@ -33,6 +35,14 @@ public class JinshuServiceImpl implements JinshuService{
 		
 		jinshuDao.saveOrUpdateBookJinhuo(bookJinhuo);
 		
+	}
+
+	@Override
+	public List<BookJinhuo> findByBookIdWithAscOrder(BookInfo book) {
+		
+		
+		
+		return jinshuDao.findByBookIdWithAscOrder(book);
 	}
 	
 	

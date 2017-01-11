@@ -17,4 +17,6 @@ public interface JinshuDao {
 	
 	public void saveOrUpdateBookJinhuo(BookJinhuo bookJinhuo);
 
+	public List<BookJinhuo> findByBookIdWithAscOrder(BookInfo book);
+
 }

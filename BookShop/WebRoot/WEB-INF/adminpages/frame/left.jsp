@@ -50,6 +50,8 @@
 			d.add('0104','01','销售管理','${pageContext.request.contextPath}/xiao/Xiaoshou_findAll','','right');
 		}
 		
+		d.add('0106','01','导出Excel','${pageContext.request.contextPath}/admin/Admin_toExportPage','','right');
+		
 		temp = i & 16;
 		if(temp == 16){
 			d.add('0105','01','添加账号','${pageContext.request.contextPath}/adminusers/addadminuser.jsp','','right');

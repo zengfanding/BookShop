@@ -148,6 +148,13 @@ public class BookInfo implements java.io.Serializable {
 	}
 
 
+	@Override
+	public String toString() {
+		return "BookInfo [bookid=" + bookid + ", tiaoma=" + tiaoma + ", name=" + name + ", num=" + num + ", author="
+				+ author + ", publishing=" + publishing + ", price=" + price + ", img=" + img + "]";
+	}
+
+
 	
 
 

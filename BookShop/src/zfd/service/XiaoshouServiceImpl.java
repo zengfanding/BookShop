@@ -2,6 +2,7 @@ package zfd.service;
 
 import java.util.List;
 
+import zfd.bean.BookInfo;
 import zfd.bean.BookXiaoshou;
 import zfd.dao.XiaoshouDao;
 import zfd.dao.XiaoshouDaoImpl;
@@ -28,6 +29,11 @@ public class XiaoshouServiceImpl implements XiaoshouService{
 	@Override
 	public List<BookXiaoshou> find(BookXiaoshou xs) {
 		return xiaoshouDao.find(xs);
+	}
+
+	@Override
+	public List<BookXiaoshou> findByBookIdWithAscOrder(BookInfo book) {
+		return xiaoshouDao.findByBookIdWithAscOrder(book);
 	}
 
 }

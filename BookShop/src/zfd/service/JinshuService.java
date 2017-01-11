@@ -2,6 +2,7 @@ package zfd.service;
 
 import java.util.List;
 
+import zfd.bean.BookInfo;
 import zfd.bean.BookJinhuo;
 
 public interface JinshuService {
@@ -13,5 +14,7 @@ public interface JinshuService {
 	public List<BookJinhuo> find(BookJinhuo bookJinhuo , int start ,int ronglinag);
 
 	public void saveOrUpdateBookJinhuo(BookJinhuo bookJinhuo);
+	
+	public List<BookJinhuo> findByBookIdWithAscOrder(BookInfo book);
 
 }

@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import zfd.bean.BookInfo;
+import zfd.bean.BookJinhuo;
 import zfd.bean.BookXiaoshou;
 import zfd.utils.PageHibernateCallback;
 
@@ -62,6 +63,14 @@ public class XiaoshouDaoImpl extends HibernateDaoSupport implements XiaoshouDao{
 		
 		sql+=" order by xiaoshouId ";
 		return this.getHibernateTemplate().find(sql, params.toArray());
+	}
+
+	@Override
+	public List<BookXiaoshou> findByBookIdWithAscOrder(BookInfo book) {
+		String hql = "from BookXiaoshou where bookInfo = ? order by xiaoshouDate asc";
+		
+		
+		return (List<BookXiaoshou>)this.getHibernateTemplate().find(hql, book);
 	}
 
 }
